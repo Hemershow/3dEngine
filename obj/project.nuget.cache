@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eyaA4NJSwwgTXFQp1EpYia8CepcE0kRADPcdlFEMiGfibOwPeSO2EKHGDUHykFGDQRK7dYLnl8Ib5YUOk0rLbQ==",
+  "dgSpecHash": "wpy3u2RlwMO2AwmlndLwgYBvF/KiuDA+sUdtL9LNg0l17qN5VSw07QLs/0DW4xinn/V8swCQ9ATVE5u35kQTqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\hemer\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
