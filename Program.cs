@@ -39,8 +39,8 @@ var rndTraingle = new Triangle(new Vector3[] {
 }, Color.Yellow);
 
 builder
-    .SetCameraStartingPosition(574.39f, 545.97f, 69.56f)
-    .SetCameraStartingDirection(97.58f, -58.62f, 547.78f)
+    .SetCameraStartingPosition(0, 2000, 0)
+    .SetCameraStartingDirection(0, 0, 0)
     .SetCameraMovementSpeed(5)
     .SetFovAngle(60, 90)
     .SetArgs()
