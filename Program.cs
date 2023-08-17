@@ -284,8 +284,6 @@ var lastHexagon = new Hexagon(new Vector3[] {
 
 builder
     .SetCameraStartingPosition(0, 2000, 0)
-    .SetCameraStartingDirection(0, 0, 0)
-    .SetCameraStartingPosition(0, 2000, 0)
     .SetCameraStartingDirection(0, 0 ,0)
     .SetCameraMovementSpeed(5)
     .SetFovAngle(60, 90)
