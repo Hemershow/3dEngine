@@ -49,3 +49,29 @@ public class Triangle : Polygon
         Points = points.ToList();
     }
 }
+
+public class Hexagon : Polygon
+{
+    public Hexagon(Vector3[] points, Color color)
+    {
+        Color = color;
+
+        if (points.Length != 6)
+            throw new ArgumentException("A hexagon needs 6 points to be instantiated.");
+
+        Points = points.ToList();
+    }
+}
+
+public class Pentagon : Polygon
+{
+    public Pentagon(Vector3[] points, Color color)
+    {
+        Color = color;
+
+        if (points.Length != 5)
+            throw new ArgumentException("A pentagon needs 5 points to be instantiated.");
+
+        Points = points.ToList();
+    }
+}
