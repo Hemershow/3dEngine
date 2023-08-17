@@ -128,6 +128,30 @@ public class Engine
                     Application.Exit();
             };
 
+            Polygons = Structures.Polygons;
+
+            foreach (var polygon in Polygons)
+            {
+                polygon.CheckIfInFov();
+            }
+
+            var maxDistance = Polygons.Max(x => x.AverageDistance);
+            var minDistance = Polygons.Min(x => x.AverageDistance);
+            var proportion = (maxDistance - minDistance) / 100;
+
+            foreach (var polygon in Polygons)
+            {
+                var lightChange = (polygon.AverageDistance - minDistance) / proportion;
+
+                var newColor = Color.FromArgb(
+                    (int)(polygon.Color.R - lightChange) < 0 ? 0 : (int)(polygon.Color.R - lightChange), 
+                    (int)(polygon.Color.G - lightChange) < 0 ? 0 : (int)(polygon.Color.G - lightChange), 
+                    (int)(polygon.Color.B - lightChange) < 0 ? 0 : (int)(polygon.Color.B - lightChange)
+                );
+                
+                polygon.Color = newColor;
+            }
+
             Timer.Start();
         };
 
@@ -177,12 +201,6 @@ public class Engine
             where T : Camera
         {
             Engine.Camera = (Camera)Activator.CreateInstance(typeof(T), new object[] {Engine.CameraArgs});
-            return this;
-        }
-
-        public EngineBuilder SetPolygons(List<Polygon> polygons)
-        {
-            Engine.Polygons = polygons;
             return this;
         }
 

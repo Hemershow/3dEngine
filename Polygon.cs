@@ -8,10 +8,10 @@ public abstract class Polygon
 {
     public List<Vector3> Points { get; protected set; }
     public double AverageDistance { get; protected set; }
-    public Color Color { get; protected set; }
+    public Color Color { get; set; }
+    public List<Point> PointsInScreen { get; set; } = new List<Point>();
     public virtual void AddPoint(Vector3 point)
         => Points.Add(point);
-    public List<Point> PointsInScreen { get; set; } = new List<Point>();
     public virtual bool CheckIfInFov()
     {
         PointsInScreen.Clear();
