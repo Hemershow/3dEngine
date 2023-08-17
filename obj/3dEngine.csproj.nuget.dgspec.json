@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj": {}
+    "c:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj": {
+    "c:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj",
+        "projectUniqueName": "c:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj",
         "projectName": "3dEngine",
-        "projectPath": "C:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj",
+        "projectPath": "c:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\3dEngine.csproj",
         "packagesPath": "C:\\Users\\hemer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\obj\\",
+        "outputPath": "c:\\Users\\hemer\\OneDrive\\Área de Trabalho\\3dEngine\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
