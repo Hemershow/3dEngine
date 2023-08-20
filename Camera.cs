@@ -23,7 +23,7 @@ public class DefaultCamera : Camera
 
     public override void ChangeDirection() 
     {
-        var MappedKeys = Engine.Current.KeyMapping.MappedKeys;
+        var MouseMovement = Engine.Current.KeyMapping.MouseMovement;
         var Fov = Engine.Current.FieldOfView;
 
         var translatedDirection = Vector3.Subtract(CameraDirection, CameraPosition);
@@ -35,37 +35,26 @@ public class DefaultCamera : Camera
         );
 
         var horizontalRotationAxis = Fov.RotatePoint(verticalRotationAxis, -90f, translatedDirection);
+        
+        translatedDirection = Fov.RotatePoint(
+            horizontalRotationAxis, 
+            -MouseMovement["Horizontal"], 
+            translatedDirection
+        );
 
-        if (MappedKeys[Keys.Left])
-            translatedDirection = Fov.RotatePoint(
-                horizontalRotationAxis, 
-                1, 
-                translatedDirection
-            );
+        translatedDirection = Fov.RotatePoint(
+            verticalRotationAxis, 
+            MouseMovement["Vertical"], 
+            translatedDirection
+        );
 
-        if (MappedKeys[Keys.Right])
-            translatedDirection = Fov.RotatePoint(
-                horizontalRotationAxis, 
-                -1, 
-                translatedDirection
-            );
-
-        if (MappedKeys[Keys.Up])
-            translatedDirection = Fov.RotatePoint(
-                verticalRotationAxis, 
-                -1, 
-                translatedDirection
-            );
-
-        if (MappedKeys[Keys.Down])
-            translatedDirection = Fov.RotatePoint(
-                verticalRotationAxis, 
-                1, 
-                translatedDirection
-            );
+        Engine.Current.KeyMapping.MouseMovement["Vertical"] = 0;
+        Engine.Current.KeyMapping.MouseMovement["Horizontal"] = 0;
+        Cursor.Position = Engine.Current.KeyMapping.ScreenCenter;
+        Engine.Current.KeyMapping.CursorLocation = Engine.Current.KeyMapping.ScreenCenter; 
 
         CameraDirection = Vector3.Add(translatedDirection, CameraPosition);
-        Engine.Current.FieldOfView.SetPoints();
+        Engine.Current.FieldOfView.SetPoints();    
     }
 
     public override void MoveCamera()
@@ -97,6 +86,7 @@ public class DefaultCamera : Camera
         var normalizedLateralDirection = Vector3.Normalize(lateralDirection);
         var sideMovement = Vector3.Multiply(CameraSpeed, normalizedLateralDirection);
         var forwardMovement = Vector3.Multiply(CameraSpeed, normalizedDirection);
+        var verticalMovement = Vector3.Multiply(CameraSpeed, new Vector3(0, 0, 1));
 
         if (!(MappedKeys[Keys.W] && MappedKeys[Keys.S]))
         {
@@ -111,6 +101,7 @@ public class DefaultCamera : Camera
                 CameraPosition = Vector3.Add(CameraPosition, -forwardMovement);
             }
         }
+
         if (!(MappedKeys[Keys.A] && MappedKeys[Keys.D]))
         {
             if (MappedKeys[Keys.A])
@@ -122,6 +113,20 @@ public class DefaultCamera : Camera
             {
                 CameraDirection = Vector3.Add(CameraDirection, sideMovement);
                 CameraPosition = Vector3.Add(CameraPosition, sideMovement);
+            }
+        }
+
+        if (!(MappedKeys[Keys.Space] && MappedKeys[Keys.ShiftKey]))
+        {
+            if (MappedKeys[Keys.Space])
+            {
+                CameraDirection = Vector3.Add(CameraDirection, verticalMovement);
+                CameraPosition = Vector3.Add(CameraPosition, verticalMovement);
+            }
+            if (MappedKeys[Keys.ShiftKey])
+            {
+                CameraDirection = Vector3.Add(CameraDirection, -verticalMovement);
+                CameraPosition = Vector3.Add(CameraPosition, -verticalMovement);
             }
         }
     }

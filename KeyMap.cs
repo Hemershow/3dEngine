@@ -7,7 +7,7 @@ public abstract class KeyMap
     public Point CursorLocation { get; set; }
     public Point ScreenCenter { get; set; }
     public Dictionary<Keys, bool> MappedKeys { get; set; }
-    public bool Moved { get; set; } = false;
+    public Dictionary<string, int> MouseMovement { get; set; }
     public abstract void SetAction();
 }
 
@@ -16,9 +16,15 @@ public class DefaultKeyMap : KeyMap
     public DefaultKeyMap()
     {
         ScreenCenter = new Point(
-            Screen.PrimaryScreen.Bounds.Width/2, 
-            Screen.PrimaryScreen.Bounds.Height/2
-        );
+            (int)(Screen.PrimaryScreen.Bounds.Width / 2 + Screen.PrimaryScreen.Bounds.Width * 0.15f), 
+            (int)(Screen.PrimaryScreen.Bounds.Height / 2 + Screen.PrimaryScreen.Bounds.Height * 0.15f)
+        ); 
+
+        MouseMovement = new Dictionary<string, int>()
+        {
+            {"Vertical", 0},
+            {"Horizontal", 0}
+        };
 
         MappedKeys = new Dictionary<Keys, bool>()
         {
@@ -31,7 +37,8 @@ public class DefaultKeyMap : KeyMap
             {Keys.Up, false},
             {Keys.Down, false},
             {Keys.ShiftKey, false},
-            {Keys.Escape, false}
+            {Keys.Escape, false},
+            {Keys.Space, false}
         };
     }
 
@@ -54,12 +61,9 @@ public class DefaultKeyMap : KeyMap
         Engine.Current.Pb.MouseMove += (s, e) =>
         {
             CursorLocation = e.Location;
-            Cursor.Position = ScreenCenter;
 
-            if (Moved)
-                CursorLocation = ScreenCenter;
-
-            Moved = false;
+            MouseMovement["Horizontal"] = CursorLocation.X - ScreenCenter.X;
+            MouseMovement["Vertical"] = CursorLocation.Y - ScreenCenter.Y; 
         };
     }
 }

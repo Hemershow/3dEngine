@@ -46,14 +46,14 @@ public static class Structures
 
         CreatePolygon<Hexagon>(new float[] {
             237.8f, -50, 57.7f, 191,-130.9f, 93.4f,
-            209.05f, -161.73f, 186.86f, 273.79f, -111.67f, 244.42f,
+            209.05f, -161.73f, 186.86f, 274.33f, -111.49f, 244.33f,
             320.49f, -30.79f, 208.52f, 302.38f, 0, 115.5f
         }, Color.White),
 
         CreatePolygon<Hexagon>(new float[] {
             97.7f, -130.9f, 57.7f, 22.1f, -161.8f, 115.5f,
             39.97f, -192.66f, 208.98f, 133.44f, -192.62f, 244.66f,
-            209.04f, -161.72f, 186.87f, 191.17f, -130.86f, 93.39f
+            209.05f, -161.73f, 186.86f, 191f, -130.9f, 93.4f
         }, Color.White),
 
         CreatePolygon<Hexagon>(new float[] {
@@ -65,7 +65,7 @@ public static class Structures
         CreatePolygon<Hexagon>(new float[] {
             97.7f, 230.9f, 57.7f, 191f, 230.9f, 93.4f,
             208.75f, 261.81f, 186.89f, 133.07f, 292.71f, 244.59f,
-            39.63f, 292.70f, 208.8f, 21.87f, 261.78f, 115.5f
+            39.63f, 292.70f, 208.8f, 22.1f, 261.8f, 115.5f
         }, Color.White),
 
         CreatePolygon<Hexagon>(new float[] {
@@ -88,7 +88,7 @@ public static class Structures
 
         CreatePolygon<Hexagon>(new float[] {
             -18.34f, 232.45f, 361.84f, -35.91f, 262.97f, 267.51f,
-            39.63f, 292.7f, 208.8f, 133.48f, 292.2f, 243.83f,
+            39.63f, 292.7f, 208.8f, 133.07f, 292.71f, 244.59f,
             151.8f, 261.98f, 337.57f, 76.26f, 232.25f, 396.28f
         }, Color.White),
 
@@ -100,7 +100,7 @@ public static class Structures
 
         CreatePolygon<Hexagon>(new float[] {
             -20.94f, -127.2f, 358.76f, -37.19f, -160.33f, 265.05f,
-            -100.36f, -111.23f, 207.38f, -146.42f, -31.08f, 241.74f,
+            -100.36f, -111.23f, 207.38f, -147.06f, -31.16f, 243.08f,
             -129.32f, -0.03f, 333.78f, -66.15f, -49.13f, 391.45f
         }, Color.White),
 
@@ -154,7 +154,7 @@ public static class Structures
 
         CreatePolygon<Pentagon>(new float[] {
             39.63f, 292.7f, 208.80f, 22.1f, 261.8f, 115.5f,
-            -64.5f, 211.8f, 115.5f, -100.36f, 212.31f, 209.45f,
+            -64.5f, 211.8f, 115.5f, -100.73f, 212.31f, 209.45f,
             -35.91f, 262.97f, 267.51f
         }, Color.DarkBlue),
 
@@ -165,13 +165,13 @@ public static class Structures
         }, Color.DarkBlue),
 
         CreatePolygon<Pentagon>(new float[] {
-            151.26f, 261.98f, 337.57f, 133.48f, 292.2f, 243.83f,
+            151.8f, 261.98f, 337.57f, 133.07f, 292.71f, 244.59f,
             208.75f, 261.81f, 186.89f, 273.33f, 211.8f, 244.69f,
             238.09f, 210.39f, 338.65f
         }, Color.DarkBlue),
 
         CreatePolygon<Pentagon>(new float[] {
-            -129.32f, -0.03f, 333.78f, -146.42f, -31.08f, 241.74f,
+            -129.32f, -0.03f, 333.78f, -147.06f, -31.16f, 243.08f,
             -158.03f, 49.49f, 186.09f, -148.06f, 131.11f, 245.61f,
             -130.43f, 100.61f, 340.06f,
         }, Color.DarkBlue),
